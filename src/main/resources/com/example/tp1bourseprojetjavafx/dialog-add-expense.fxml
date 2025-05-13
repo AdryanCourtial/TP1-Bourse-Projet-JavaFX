@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.sun.javafx.scene.control.DoubleField?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="400.0" prefWidth="600.0"
+            fx:controller="com.example.tp1bourseprojetjavafx.dialog.AddExpenseDialogue.AddExpenseController">
+    <content>
+
+        <VBox>
+            <HBox>
+                <Label text="Nom :"></Label>
+                <TextField fx:id="name"></TextField>
+            </HBox>
+
+            <HBox>
+                <Label text="Date :"></Label>
+                <DatePicker fx:id="date"></DatePicker>
+            </HBox>
+
+            <HBox>
+                <Label text="Prix :"></Label>
+                <TextField fx:id="housing"></TextField>
+            </HBox>
+
+            <HBox>
+                <Label text="Nouriture :"></Label>
+                <CheckBox fx:id="food"></CheckBox>
+            </HBox>
+
+            <HBox>
+                <Label text="Sortie :"></Label>
+                <CheckBox fx:id="goingOut"></CheckBox>
+            </HBox>
+
+            <HBox>
+                <Label text="Moyen de Déplacement :"></Label>
+                <CheckBox fx:id="transportation"></CheckBox>
+            </HBox>
+
+            <HBox>
+                <Label text="Voyage :"></Label>
+                <CheckBox fx:id="travel"></CheckBox>
+            </HBox>
+
+            <HBox>
+                <Label text="Taxe :"></Label>
+                <CheckBox fx:id="tax"></CheckBox>
+            </HBox>
+
+            <HBox>
+                <Label text="Autre :"></Label>
+                <CheckBox fx:id="other"></CheckBox>
+            </HBox>
+
+        </VBox>
+
+    </content>
+
+    <ButtonType text="Ajouter" buttonData="OK_DONE" />
+    <ButtonType text="Annuler" buttonData="CANCEL_CLOSE" />
+
+</DialogPane>

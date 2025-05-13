@@ -3,9 +3,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
 
+<?import javafx.scene.control.Button?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.tp1bourseprojetjavafx.expense.ExpenseController">
 
     <Label> Salut je fait le test ma page </Label>
+    <Button onAction="#redirectToDialogExpense"> Ajouter une dépense</Button>
 
 </VBox>

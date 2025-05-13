@@ -1,9 +1,13 @@
 package com.example.tp1bourseprojetjavafx.expense;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Expense {
 
-    private String date;
-    private Double housing;
+    private String name;
+    private LocalDate date;
+    private String housing;
     private Boolean food;
     private Boolean goingOut;
     private Boolean transportation;
@@ -13,8 +17,9 @@ public class Expense {
 
 
     public Expense(
-        String date,
-        Double housing,
+        String name,
+        LocalDate date,
+        String housing,
         Boolean food,
         Boolean goingOut,
         Boolean transportation,
@@ -22,6 +27,7 @@ public class Expense {
         Boolean tax,
         Boolean other
     ) {
+        this.name = name;
         this.date = date;
         this.housing = housing;
         this.food = food;
@@ -40,19 +46,19 @@ public class Expense {
         this.food = food;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public Double getHousing() {
+    public String getHousing() {
         return housing;
     }
 
-    public void setHousing(Double housing) {
+    public void setHousing(String housing) {
         this.housing = housing;
     }
 
@@ -95,4 +101,13 @@ public class Expense {
     public void setOther(Boolean other) {
         this.other = other;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

@@ -54,14 +54,15 @@ public class Database {
         String createTables =
                 """
                         CREATE TABLE IF NOT EXISTS expense(
+                             name TEXT NOT NULL,
                              date TEXT NOT NULL,
-                             housing REAL NOT NULL,
-                             food REAL NOT NULL,
-                             goingOut REAL NOT NULL,
-                             transportation REAL NOT NULL,
-                             travel REAL NOT NULL,
-                             tax REAL NOT NULL,
-                             other REAL NOT NULL
+                             housing TEXT NOT NULL,
+                             food BOOLEAN NOT NULL,
+                             goingOut BOOLEAN NOT NULL,
+                             transportation BOOLEAN NOT NULL,
+                             travel BOOLEAN NOT NULL,
+                             tax BOOLEAN NOT NULL,
+                             other BOOLEAN NOT NULL
                      );
                    """;
 
