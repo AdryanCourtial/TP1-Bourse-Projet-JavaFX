@@ -1,5 +1,6 @@
 package com.example.tp1bourseprojetjavafx;
 
+import com.example.tp1bourseprojetjavafx.database.Database;
 import com.example.tp1bourseprojetjavafx.scene.SceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
