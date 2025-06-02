@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tp1bourseprojetjavafx.ExpensesController">
+    <top>
+        <Label text="Tableau récapitulatif des dépenses" BorderPane.alignment="CENTER"  styleClass="titre-principal"/>
+    </top>
+    <center>
+        <TableView fx:id="expenseTable" styleClass="table-expenses">
+            <columns>
+                <TableColumn text="Période" fx:id="colPeriode"/>
+                <TableColumn text="Total" fx:id="colTotal"/>
+                <TableColumn text="Logement" fx:id="colLogement"/>
+                <TableColumn text="Nourriture" fx:id="colNourriture"/>
+                <TableColumn text="Sorties" fx:id="colSorties"/>
+                <TableColumn text="Voiture/Transport" fx:id="colTransport"/>
+                <TableColumn text="Voyage" fx:id="colVoyage"/>
+                <TableColumn text="Impôts" fx:id="colImpots"/>
+                <TableColumn text="Autres" fx:id="colAutres"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

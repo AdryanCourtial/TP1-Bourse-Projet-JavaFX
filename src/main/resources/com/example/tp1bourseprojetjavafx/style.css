@@ -1,0 +1,11 @@
+.titre-principal {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00529B;
+    -fx-padding: 10;
+}
+
+.table-expenses {
+    -fx-background-color: #F8F8F8;
+    -fx-border-color: #CCC;
+}
