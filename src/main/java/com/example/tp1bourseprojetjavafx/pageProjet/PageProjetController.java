@@ -1,22 +1,20 @@
-package com.example.tp1bourseprojetjavafx.expense;
+package com.example.tp1bourseprojetjavafx.pageProjet;
 
 import com.example.tp1bourseprojetjavafx.MainApplication;
 import com.example.tp1bourseprojetjavafx.database.queries.ExpenseDAO;
 import com.example.tp1bourseprojetjavafx.dialog.AddExpenseDialogue.AddExpenseController;
+import com.example.tp1bourseprojetjavafx.expense.Expense;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class ExpenseController {
-
+public class PageProjetController {
     @FXML
     private TableView<Expense> expenseData;
 
@@ -92,19 +90,19 @@ public class ExpenseController {
         System.out.println("Expenses chargées : " + expenseData.toString());
     }
 
-     @FXML
+    @FXML
     public void redirectToDialogExpense() throws IOException {
-         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("dialog-add-expense.fxml"));
-         DialogPane dialogPane = loader.load();
+        FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("dialog-add-expense-month.fxml"));
+        DialogPane dialogPane = loader.load();
 
-         AddExpenseController controller = loader.getController();
+        AddExpenseController controller = loader.getController();
 
-         Dialog<Expense> dialog = new Dialog<>();
-         dialog.setTitle("Ajouter une dépense");
-         dialog.setDialogPane(dialogPane);
+        Dialog<Expense> dialog = new Dialog<>();
+        dialog.setTitle("Ajouter une dépense");
+        dialog.setDialogPane(dialogPane);
 
-         dialog.setResultConverter((buttonType) -> {
-             System.out.println("JE VIENS DE CLIQUER");
+        dialog.setResultConverter((buttonType) -> {
+            System.out.println("JE VIENS DE CLIQUER");
             if (!Objects.equals(ButtonBar.ButtonData.OK_DONE, buttonType.getButtonData())) {
                 return null;
             }
@@ -113,11 +111,11 @@ public class ExpenseController {
             expenseDAO.insertExpense(controller.getExpense());
             return controller.getExpense();
 
-         });
+        });
 
-         dialog.showAndWait();
+        dialog.showAndWait();
 
-         loadExpenses();
+        loadExpenses();
 
-     }
+    }
 }

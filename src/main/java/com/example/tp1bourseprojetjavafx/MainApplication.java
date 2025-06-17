@@ -22,7 +22,7 @@ public class MainApplication extends Application {
 
                 this.con = Database.connect();
 
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("expense-view.fxml"));
 
                 Scene scene = new Scene(fxmlLoader.load(), 320, 240);
                 stage.setTitle("Bourse Project JavaFX");

@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.Label?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TableColumn?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.tp1bourseprojetjavafx.expense.ExpenseController">
+<VBox xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.tp1bourseprojetjavafx.pageProjet.PageProjetController"
+            prefHeight="400.0" prefWidth="400.0">
 
     <fx:include source="./header-view.fxml"/>
+
     <Button onAction="#redirectToDialogExpense"> Ajouter une dépense</Button>
 
     <TableView fx:id="expenseData">
         <columns>
             <TableColumn fx:id="expenseName" text="Nom" prefWidth="180" />
             <TableColumn fx:id="expenseHousing" text="Prix" prefWidth="180" />
-            <TableColumn fx:id="expenseDate" text="Date" prefWidth="180" />
+            <TableColumn fx:id="expenseDate" text="Month" prefWidth="180" />
             <TableColumn fx:id="expenseFood" text="GoingOut" prefWidth="180" />
             <TableColumn fx:id="expenseGoingOut" text="GoingOut" prefWidth="180" />
             <TableColumn fx:id="expenseTax" text="Tax" prefWidth="180" />

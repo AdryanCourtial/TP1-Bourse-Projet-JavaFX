@@ -66,9 +66,30 @@ public class Database {
                      );
                    """;
 
+            String createSecondeTables =
+                    """
+                            CREATE TABLE IF NOT EXISTS expense_month(
+                                 name TEXT NOT NULL,
+                                 date TEXT NOT NULL,
+                                 housing TEXT NOT NULL,
+                                 food BOOLEAN NOT NULL,
+                                 goingOut BOOLEAN NOT NULL,
+                                 transportation BOOLEAN NOT NULL,
+                                 travel BOOLEAN NOT NULL,
+                                 tax BOOLEAN NOT NULL,
+                                 other BOOLEAN NOT NULL
+                         );
+                       """;
+
+
+
         try (Connection connection = Database.connect()) {
             PreparedStatement statement = connection.prepareStatement(createTables);
+            PreparedStatement secondStatement = connection.prepareStatement(createSecondeTables);
+
             statement.executeUpdate();
+            secondStatement.executeUpdate();
+
             return true;
         } catch (SQLException exception) {
             Logger.getAnonymousLogger().log(Level.SEVERE, LocalDateTime.now() + ": Could not find tables in database");
