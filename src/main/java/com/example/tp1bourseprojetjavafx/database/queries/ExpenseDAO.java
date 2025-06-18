@@ -38,6 +38,31 @@ public class ExpenseDAO {
         }
     }
 
+    public boolean insertExpenseMonth(Expense expense) {
+        String insertExpense = """
+                    INSERT INTO expense_month (name, date, housing, food, goingOut, transportation, travel, tax, other)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+               """;
+
+        try (Connection con = Database.connect()) {
+            PreparedStatement statement = con.prepareStatement(insertExpense);
+            statement.setString(1, expense.getName());
+            statement.setString(2, expense.getDate().toString());
+            statement.setString(3, expense.getHousing());
+            statement.setBoolean(4, expense.getFood());
+            statement.setBoolean(5, expense.getGoingOut());
+            statement.setBoolean(6, expense.getTransportation());
+            statement.setBoolean(7, expense.getTravel());
+            statement.setBoolean(8, expense.getTax());
+            statement.setBoolean(9, expense.getOther());
+            statement.executeUpdate();
+            return true;
+        } catch (SQLException exception) {
+            Logger.getAnonymousLogger().log(Level.WARNING, LocalDateTime.now() + exception.getMessage());
+            return false;
+        }
+    }
+
     public List<Expense> getExpenses() {
 
         List<Expense> result = new ArrayList<>();

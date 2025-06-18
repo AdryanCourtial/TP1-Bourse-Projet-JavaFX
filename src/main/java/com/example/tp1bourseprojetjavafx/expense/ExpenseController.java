@@ -110,7 +110,7 @@ public class ExpenseController {
             }
 
             ExpenseDAO expenseDAO = new ExpenseDAO();
-            expenseDAO.insertExpense(controller.getExpense());
+            expenseDAO.insertExpenseMonth(controller.getExpense());
             return controller.getExpense();
 
          });

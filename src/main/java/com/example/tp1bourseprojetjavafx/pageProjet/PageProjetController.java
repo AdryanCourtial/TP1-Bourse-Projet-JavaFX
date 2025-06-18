@@ -2,7 +2,7 @@ package com.example.tp1bourseprojetjavafx.pageProjet;
 
 import com.example.tp1bourseprojetjavafx.MainApplication;
 import com.example.tp1bourseprojetjavafx.database.queries.ExpenseDAO;
-import com.example.tp1bourseprojetjavafx.dialog.AddExpenseDialogue.AddExpenseController;
+import com.example.tp1bourseprojetjavafx.dialog.AddExpenseDialogue.AddExpenseMonthDialogue;
 import com.example.tp1bourseprojetjavafx.expense.Expense;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -95,27 +95,27 @@ public class PageProjetController {
         FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource("dialog-add-expense-month.fxml"));
         DialogPane dialogPane = loader.load();
 
-        AddExpenseController controller = loader.getController();
+        // Cast vers le bon contrôleur
+        AddExpenseMonthDialogue controller = loader.getController();
 
         Dialog<Expense> dialog = new Dialog<>();
         dialog.setTitle("Ajouter une dépense");
         dialog.setDialogPane(dialogPane);
 
-        dialog.setResultConverter((buttonType) -> {
+        dialog.setResultConverter(buttonType -> {
             System.out.println("JE VIENS DE CLIQUER");
-            if (!Objects.equals(ButtonBar.ButtonData.OK_DONE, buttonType.getButtonData())) {
-                return null;
+            if (ButtonBar.ButtonData.OK_DONE.equals(buttonType.getButtonData())) {
+                ExpenseDAO expenseDAO = new ExpenseDAO();
+                Expense expense = controller.getExpenseMonth();
+                expenseDAO.insertExpenseMonth(expense);
+                return expense;
             }
-
-            ExpenseDAO expenseDAO = new ExpenseDAO();
-            expenseDAO.insertExpense(controller.getExpense());
-            return controller.getExpense();
-
+            return null;
         });
 
         dialog.showAndWait();
 
+        // Recharge les données
         loadExpenses();
-
     }
 }
